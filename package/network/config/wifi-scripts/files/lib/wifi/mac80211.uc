@@ -102,7 +102,7 @@ set ${s}.${id}
 set ${s}.band='${band_name}'
 set ${s}.channel='${channel}'
 set ${s}.htmode='${htmode}'
-set ${s}.country='${country || ''}'
+set ${s}.country='${country || "CN"}'
 set ${s}.num_global_macaddr='${num_global_macaddr || ''}'
 
 set ${si}=wifi-iface
@@ -112,7 +112,7 @@ set ${si}.mode='ap'
 set ${si}.ssid='${defaults?.ssid || "OpenWrt"}'
 set ${si}.encryption='${defaults?.encryption || encryption}'
 set ${si}.key='${defaults?.key || ""}'
-set ${si}.disabled='${defaults ? 0 : 1}'
+set ${si}.disabled='0'
 
 `);
 		config[name] = {};
