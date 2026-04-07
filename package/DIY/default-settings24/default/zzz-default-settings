@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# theme
+if [ -d "/www/luci-static/argon" ] && [ -z "$(uci -q get luci.main.pollinterval)" ]; then
+    uci set luci.main.mediaurlbase='/luci-static/argon'
+    uci set luci.main.pollinterval='3'
+    uci commit luci
+fi
+
+# diagnostics
+if [ $(uci -q get luci.diag.ping) = "openwrt.org" ]; then
+    uci set luci.diag.dns='www.qq.com'
+    uci set luci.diag.ping='www.qq.com'
+    uci set luci.diag.route='www.qq.com'
+    uci commit luci
+fi
+
+exit 0
